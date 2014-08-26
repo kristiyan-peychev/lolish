@@ -1,0 +1,54 @@
+Name:
+	lolish - Lolita shell: Loosely outputted and lazily integrated terminal access shell
+
+Synopsis:
+	lolish [options]
+
+Copyright:
+	lolish is under the wtf public licence, every file you get as a part of the shell source should start with it.
+	Original creator: Kristiyan Peychev (hikikomori)
+Description:
+	lolish is a brand-new, still in-development GNU/Linux shell, not recomended for proffessional use. It is intended as a simple and lightweight command-line interpreter.
+
+Options:
+	The options of the shell are still in development:
+
+	-t	Invoke the shell as a test shell, no RC will be loaded, only necessairy things shall be loaded. Fast mode.
+	--test	Equivalent to -t
+
+Invocation:
+	Upon invocation as the simple `lolish`, the shell shall not be executed as a login shell (which is not supported either, expect at a later verion of the shell), but instead will be executed as an interactive shell, which accepts commands like every normal shell.
+
+Shell grammar:
+	Simple commands:
+		A simple command is a sequence of strings, separated by spaces, the first of which is the command's name itself. It ends with either characters '&', '|', or a newline (i.e. <Enter>).
+		Syntax:	[command] [arg1] [arg2] ...
+	Pipelines:
+		A pipeline is a sequence of commands, each with its own arguments, separated by a pipe '|'.
+		These commands have their standart inputs and outputs connected via a pipe, the first command gets nothing in its standart input by defalt, after which its output get fully redirected to to next command and so on until every command has been executed.
+		Note: the commands get error checked once it is thier turn to get invoked by the shell.
+		Syntax:	[command] [arg1] [arg2] ... | [command2] ... | [command3] ... | ...
+
+	Threads:
+		A sequence of simple commands or pipelines is executed simultaniously when they are invoked with an amperstand '&' after each of them, except the last one (it will still work if there's an amperstand after the last one, though you might get a warning)
+		Syntax:	[command] [arg1] [arg2] ... & [command2] ... & [command3] ... & ...
+	Shell variables:
+		A variable shall be declaired and will be free for your use after you do so with the built-in command `var`.
+		They are not implemented in the shell in version 1.2, but will be in all future versions.
+		They are best to be declaired in the RC file, which is in ~/.terminalcode
+		Notes: the variables shall be called each time they are called with a dollar sign before the name, unless it's in quotes.
+		Syntax:	[var] [variable name] = [value];
+			$[variable name]
+Soon-to-come features:
+	Input/output redirection, job control, autocomplete feature, history expantion, whatever I think of.
+
+Author:
+	Kristiyan Peychev, kurotsuki_l@yahoo.com
+Bugs:
+	It takes too much memory. Lolish built-in functions are not stoppable, as the shell shall ignore SIGINT.
+	The shell does not care about the status of the child process it executes, nor its return value.
+	If you want to know about more bugs in the shell, just try using it.
+	You are free to report any bug you find in the shell, as there still will be a lot of them.
+
+
+2013 February 22
