@@ -1,0 +1,15 @@
+Lolish is a free GNU/Linux shell under the wtfpl(check http://www.wtfpl.net/).
+The shell has no dependencies, excluding glibc, lots of things are hard coded and some do not work as intended, 
+but I do not have the time to fix it(rewrite it).
+If you would like to rad more about the project, read the man files in the doc/ directory, it should be easy to understand.
+If you would like to get involved with ]this[, just send me an email to one of the following: <kurotsuki_l@yahoo.com>, 
+<krpeychev@gmail.com>, I am ready to outsource this whole project.
+Instalation instructions:
+
+0. Get in to the source directory.
+
+1. Type `make` or `make install` to compile the source, the latter installs it to /usr/bin, so you will probably 
+need to be root.
+
+2. To run the interactive shell type `./lolish` or `lolish` respectively.
+
